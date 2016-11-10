@@ -1,3 +1,6 @@
+todo: write doco relating to scratch-list
+
+Project based off of https://github.com/coryhouse/react-slingshot
 # React Slingshot!
 
 [![Build status: Linux](https://img.shields.io/travis/coryhouse/react-slingshot.svg?style=flat-square)](https://travis-ci.org/coryhouse/react-slingshot)

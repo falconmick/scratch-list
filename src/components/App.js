@@ -1,5 +1,5 @@
-import React, { PropTypes } from 'react';
-import { Link, IndexLink } from 'react-router';
+import React, {PropTypes} from 'react';
+import ScratchList from '../containers/ScratchList'
 
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless
@@ -8,13 +8,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <IndexLink to="/">Home</IndexLink>
-        {' | '}
-        <Link to="/fuel-savings">Demo App</Link>
-        {' | '}
-        <Link to="/about">About</Link>
-        <br/>
-        {this.props.children}
+        { /* <h1>header</h1> */ }
+        { /*this.props.children*/ }
+        <ScratchList />
+        { /* <h1>footer</h1> */ }
       </div>
     );
   }

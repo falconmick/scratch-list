@@ -1,7 +1,7 @@
 {
-  "name": "react-slingshot",
-  "version": "5.0.0",
-  "description": "Starter kit for creating apps with React and Redux",
+  "name": "scratch-list",
+  "version": "0.0.1",
+  "description": "Website for displaying recent projects by a list of scratch users",
   "engines": {
     "npm": ">=3"
   },
@@ -26,9 +26,11 @@
     "test:watch": "npm run test -- --watch",
     "open:cover": "npm run test:cover && open coverage/index.html"
   },
-  "author": "Cory House",
+  "author": "Michael Crook",
   "license": "MIT",
   "dependencies": {
+    "bulma": "0.2.3",
+    "font-awesome": "4.7.0",
     "object-assign": "4.1.0",
     "react": "15.3.2",
     "react-dom": "15.3.2",
@@ -105,11 +107,11 @@
     "webpack",
     "redux",
     "flux",
-    "boilerplate",
-    "starter"
+    "scratch",
+    "codeclub"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/coryhouse/react-slingshot"
+    "url": "https://github.com/falconmick/scratch-list"
   }
 }
