@@ -2,8 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import HeroComponent from '../components/Bulma/HeroComponent';
-import ContainerComponenet from '../components/Bulma/ContainerComponenet';
+// import HeroComponent from '../components/Bulma/HeroComponent';
+// import ContainerComponenet from '../components/Bulma/ContainerComponenet';
+import { HeroComponent, ContainerComponenet, CardComponent } from '../components/Bulma';
 
 class ScratchList extends React.Component {
   constructor(props, context) {
@@ -14,8 +15,9 @@ class ScratchList extends React.Component {
     return (
       <div>
         <HeroComponent title="Scratch List" subtitle="Recent Projects"  />
-        <ContainerComponenet>
-          <h1 className="title is-1">Test</h1>
+        <br />
+        <ContainerComponenet className="columns">
+          <CardComponent className="column" />
         </ContainerComponenet>
       </div>
     );
