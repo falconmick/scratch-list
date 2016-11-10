@@ -1,40 +1,57 @@
 import React, {PropTypes} from 'react';
 
-const CardComponent = () => {
-    return (
-      <div className="card">
+const CardComponent = ({className, centerCard, projImgSrc, avatarImgSrc, userName, footer, content}) => {
+
+  console.log(`centerCard is: ${centerCard}`)
+  let cardClass = 'card'
+  if(centerCard) {
+    cardClass = `${cardClass} card-center`
+  }
+  return (
+    <div className={className}>
+      <div className={cardClass}>
         <div className="card-image">
           <figure className="image is-4by3">
-            <img src="http://placehold.it/300x225" alt="" />
+            <img src={projImgSrc} alt=""/>
           </figure>
         </div>
         <div className="card-content">
           <div className="media">
             <div className="media-left">
               <figure className="image is-32x32">
-                <img src="http://placehold.it/64x64" alt="Image"/>
+                <img src={avatarImgSrc} alt="Image"/>
               </figure>
             </div>
-            <div className="media-content">
-              <p className="title is-5">John Smith</p>
-              <p className="subtitle is-6">@johnsmith</p>
+            <div className="media-content text-center">
+              <p className="title is-5 ">{ userName }</p>
             </div>
           </div>
 
           <div className="content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Phasellus nec iaculis mauris. <a href="#">@bulmaio</a>.
-            <a href="#">#css</a> <a href="#">#responsive</a>
+            { content }
             <br />
-              <small>11:09 PM - 1 Jan 2016</small>
+            <small>{footer}</small>
           </div>
         </div>
       </div>
-    );
+    </div>
+  );
 };
 
 CardComponent.propTypes = {
-    myProp: PropTypes.string
+  userName: PropTypes.string.isRequired,
+  footer: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  projImgSrc: PropTypes.string,
+  avatarImgSrc: PropTypes.string,
+  centerCard: PropTypes.bool
 };
+
+CardComponent.defaultProps = {
+  centerCard: false,
+  projImgSrc: 'http://placehold.it/300x225?text=loading', //
+  avatarImgSrc: 'http://placehold.it/64x64?text=loading'
+}
 
 export default CardComponent;

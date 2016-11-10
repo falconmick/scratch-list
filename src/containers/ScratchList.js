@@ -1,10 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import Moment from 'moment';
 import {bindActionCreators} from 'redux';
-
-// import HeroComponent from '../components/Bulma/HeroComponent';
-// import ContainerComponenet from '../components/Bulma/ContainerComponenet';
-import { HeroComponent, ContainerComponenet, CardComponent } from '../components/Bulma';
+import {HeroComponent, ContainerComponenet} from '../components/Bulma';
+import ScratchCardComponent from '../components/ScratchCardComponent';
+import { getFormattedDate } from '../utils/dateHelper';
+import { loremIpsum } from '../utils/loremIpsum';
 
 class ScratchList extends React.Component {
   constructor(props, context) {
@@ -12,12 +13,17 @@ class ScratchList extends React.Component {
   }
 
   render() {
+    // const now = new Moment();
+    // const footer = getFormattedDate(now);
+
     return (
       <div>
-        <HeroComponent title="Scratch List" subtitle="Recent Projects"  />
+        <HeroComponent title="Scratch List" subtitle="Recent Projects"/>
         <br />
-        <ContainerComponenet className="columns">
-          <CardComponent className="column" />
+        <ContainerComponenet>
+          <div className="columns is-multiline">
+            <ScratchCardComponent />
+          </div>
         </ContainerComponenet>
       </div>
     );
