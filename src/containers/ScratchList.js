@@ -1,15 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import Moment from 'moment';
 import {bindActionCreators} from 'redux';
 import {HeroComponent, ContainerComponenet} from '../components/Bulma';
 import ScratchCardComponent from '../components/ScratchCardComponent';
-import { getFormattedDate } from '../utils/dateHelper';
-import { loremIpsum } from '../utils/loremIpsum';
+import * as projectActions from '../actions/projectActions';
 
 class ScratchList extends React.Component {
   constructor(props, context) {
     super(props, context);
+  }
+
+  componentDidMount() {
+    this.props.actions.updateStudentProjects('Falconmick');
   }
 
   render() {
@@ -22,7 +24,9 @@ class ScratchList extends React.Component {
         <br />
         <ContainerComponenet>
           <div className="columns is-multiline">
-            <ScratchCardComponent />
+            {
+              this.props.projects.map(project => <ScratchCardComponent key={project.id} {...project} />)
+            }
           </div>
         </ContainerComponenet>
       </div>
@@ -35,15 +39,15 @@ ScratchList.propTypes = {
 };
 
 function mapStateToProps(state/*, ownProps*/) {
+  console.log(state.projects);
   return {
-    state: state
+    projects: state.projects
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  const actions = {};
   return {
-    actions: bindActionCreators(actions, dispatch)
+    actions: bindActionCreators(projectActions, dispatch)
   };
 }
 

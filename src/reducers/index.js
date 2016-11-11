@@ -1,10 +1,9 @@
-const tmpReducer = (state = {}) => {
-  return state;
-};
-
 // Set up your root reducer here...
 import {combineReducers} from 'redux';
+import projects from './projectReducer';
 
-const rootReducer = combineReducers({tmpReducer});
+const rootReducer = combineReducers({
+  projects
+});
 
 export default rootReducer;

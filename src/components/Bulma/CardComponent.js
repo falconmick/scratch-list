@@ -1,11 +1,10 @@
 import React, {PropTypes} from 'react';
+import Clamp from 'react-clamp';
 
-const CardComponent = ({className, centerCard, projImgSrc, avatarImgSrc, userName, footer, content}) => {
-
-  console.log(`centerCard is: ${centerCard}`)
-  let cardClass = 'card'
+const CardComponent = ({className, centerCard, projImgSrc, avatarImgSrc, userName, footer, content, projectTitle, cardId}) => {
+  let cardClass = 'card';
   if(centerCard) {
-    cardClass = `${cardClass} card-center`
+    cardClass = `${cardClass} card-center`;
   }
   return (
     <div className={className}>
@@ -22,13 +21,16 @@ const CardComponent = ({className, centerCard, projImgSrc, avatarImgSrc, userNam
                 <img src={avatarImgSrc} alt="Image"/>
               </figure>
             </div>
-            <div className="media-content text-center">
-              <p className="title is-5 ">{ userName }</p>
+            <div className="media-content">
+              <p className="title is-5">{projectTitle}</p>
+              <p className="subtitle is-6">{userName}</p>
             </div>
           </div>
 
           <div className="content">
-            { content }
+            <Clamp clamp="..." className="clamp-card">
+              { content }
+            </Clamp>
             <br />
             <small>{footer}</small>
           </div>
@@ -39,9 +41,11 @@ const CardComponent = ({className, centerCard, projImgSrc, avatarImgSrc, userNam
 };
 
 CardComponent.propTypes = {
+  projectTitle: PropTypes.string.isRequired,
   userName: PropTypes.string.isRequired,
   footer: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
+  cardId: PropTypes.number.isRequired,
   className: PropTypes.string,
   projImgSrc: PropTypes.string,
   avatarImgSrc: PropTypes.string,
@@ -52,6 +56,6 @@ CardComponent.defaultProps = {
   centerCard: false,
   projImgSrc: 'http://placehold.it/300x225?text=loading', //
   avatarImgSrc: 'http://placehold.it/64x64?text=loading'
-}
+};
 
 export default CardComponent;

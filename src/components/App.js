@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import ScratchList from '../containers/ScratchList'
+import ScratchList from '../containers/ScratchList';
 
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless

@@ -11,3 +11,9 @@ define overrides for bulma here
   margin-top: auto;
   margin-bottom: auto;
 }
+
+.clamp-card {
+  height: 60px;
+  overflow: hidden;
+  line-height: 20px;
+}
