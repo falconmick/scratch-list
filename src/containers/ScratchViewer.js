@@ -29,7 +29,8 @@ class ScratchViewer extends React.Component {
 
 ScratchViewer.propTypes = {
   actions: PropTypes.object.isRequired,
-  params: PropTypes.object.isRequired
+  params: PropTypes.object.isRequired,
+  project: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {

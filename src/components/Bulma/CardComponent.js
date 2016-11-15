@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import Clamp from 'react-clamp';
 import {Link} from 'react-router';
 
-const CardComponent = ({className, centerCard, projImgSrc, avatarImgSrc, userName, footer, content, projectTitle, cardId, link}) => {
+const CardComponent = ({className, centerCard, projImgSrc, avatarImgSrc, userName, footer, content, projectTitle, link}) => {
   let cardClass = 'card';
   if (centerCard) {
     cardClass = `${cardClass} card-center`;
@@ -48,7 +48,6 @@ CardComponent.propTypes = {
   userName: PropTypes.string.isRequired,
   footer: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
-  cardId: PropTypes.number.isRequired,
   className: PropTypes.string,
   projImgSrc: PropTypes.string,
   avatarImgSrc: PropTypes.string,
