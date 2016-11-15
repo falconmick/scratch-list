@@ -12,6 +12,5 @@ export function endAjaxCall() {
 export function ajaxCallError(message) {
   const errMssg = `Request Failed: ${message}`;
   toastr.error(errMssg);
-  throw new Error(errMssg);
   return { type: AJAX_CALL_ERROR };
 }

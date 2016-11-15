@@ -16,6 +16,7 @@ export function updateStudentProjects(student) {
       })
       .catch(err => {
         dispatch(ajaxCallError(err));
+        throw new Error(err);
       });
   };
 }

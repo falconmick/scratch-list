@@ -23,7 +23,11 @@ const ScratchCardComponent = ({author, description, history, id, title}) => {
 };
 
 ScratchCardComponent.propTypes = {
-    myProp: PropTypes.string
+  author: PropTypes.object.isRequired,
+  description: PropTypes.string.isRequired,
+  history: PropTypes.object.isRequired,
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired
 };
 
 export default ScratchCardComponent;

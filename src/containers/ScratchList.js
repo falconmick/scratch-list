@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {HeroComponent, ContainerComponenet} from '../components/Bulma';
@@ -35,11 +35,11 @@ class ScratchList extends React.Component {
 }
 
 ScratchList.propTypes = {
-  //myProp: PropTypes.string.isRequired
+  actions: PropTypes.object.isRequired,
+  projects: PropTypes.array.isRequired,
 };
 
 function mapStateToProps(state/*, ownProps*/) {
-  console.log(state.projects);
   return {
     projects: state.projects
   };
