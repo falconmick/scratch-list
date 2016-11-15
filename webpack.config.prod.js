@@ -22,7 +22,7 @@ export default {
   entry: path.resolve(__dirname, 'src/index'),
   target: 'web', // necessary per https://webpack.github.io/docs/testing.html#compile-and-test
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'docs'),
     publicPath: '/',
     filename: '[name].[chunkhash].js'
   },
@@ -75,7 +75,7 @@ export default {
       {test: /\.svg(\?v=\d+.\d+.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml&name=[name].[ext]'},
       {test: /\.(jpe?g|png|gif)$/i, loader: 'file?name=[name].[ext]'},
       {test: /\.ico$/, loader: 'file?name=[name].[ext]'},
-      {test: /(\.css|\.scss)$/, loader: ExtractTextPlugin.extract('css?sourceMap!postcss!sass?sourceMap')},
+      {test: /(\.css|\.scss|\.sass)$/, loader: ExtractTextPlugin.extract('css?sourceMap!postcss!sass?sourceMap')},
       {test: /\.json$/, loader: "json"}
     ]
   },
