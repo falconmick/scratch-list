@@ -1,13 +1,9 @@
-import {UPDATE_STUDENT_SUCCESS, SET_PROJECT_ID} from '../constants/actionTypes';
+import {UPDATE_STUDENT_SUCCESS} from '../constants/actionTypes';
 import {beginAjaxCall, endAjaxCall, ajaxCallError} from './ajaxActions';
 import StudentApi from '../api/StudentApi';
 
 function updateStudentSuccess(projects) {
   return {type: UPDATE_STUDENT_SUCCESS, projects};
-}
-
-function setProjectId(projectId) {
-  return {type: SET_PROJECT_ID, projectId}
 }
 
 export function updateStudentProjects(student) {
@@ -22,11 +18,5 @@ export function updateStudentProjects(student) {
         dispatch(ajaxCallError(err));
         throw new Error(err);
       });
-  };
-}
-
-export function setProjectId(projectId) {
-  return dispatch => {
-    dispatch(setProjectId());
   };
 }

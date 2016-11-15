@@ -1,7 +1,7 @@
 import store from './store';
-import { setProjectId } from './actions/projectActions';
+import { setProjectId } from './actions/pageActions';
 
 export function onProjectEnter(nextState) {
-  debugger;
-  store.dispatch(setProjectId(nextState.params.id));
+  const projectId = parseInt(nextState.params.id) || -1;
+  store.dispatch(setProjectId(projectId));
 }

@@ -15,7 +15,8 @@ const ScratchCardComponent = ({author, description, history, id, title}) => {
     projImgSrc: `https://cdn2.scratch.mit.edu/get_image/project/${id}_300x225.png`,
     projectTitle: title,
     avatarImgSrc: `https://cdn2.scratch.mit.edu/get_image/user/${author.id}_90x90.png`,
-    cardId: id
+    cardId: id,
+    link: `project/${id}`
   };
   return (
       <CardComponent {...cardProps} />

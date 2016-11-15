@@ -1,9 +1,10 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {HeroComponent, ContainerComponenet} from '../components/Bulma';
+import {ContainerComponenet} from '../components/Bulma';
 import ScratchCardComponent from '../components/ScratchCardComponent';
 import * as projectActions from '../actions/projectActions';
+import * as pageActions from '../actions/pageActions';
 
 class ScratchList extends React.Component {
   constructor(props, context) {
@@ -11,6 +12,7 @@ class ScratchList extends React.Component {
   }
 
   componentDidMount() {
+    this.props.actions.setPageTitle('Recent Projects');
     this.props.actions.updateStudentProjects('Falconmick');
   }
 
@@ -20,8 +22,6 @@ class ScratchList extends React.Component {
 
     return (
       <div>
-        <HeroComponent title="Scratch List" subtitle="Recent Projects"/>
-        <br />
         <ContainerComponenet>
           <div className="columns is-multiline">
             {
@@ -47,7 +47,7 @@ function mapStateToProps(state/*, ownProps*/) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(projectActions, dispatch)
+    actions: bindActionCreators(Object.assign({}, projectActions, pageActions), dispatch)
   };
 }
 

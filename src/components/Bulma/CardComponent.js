@@ -1,19 +1,22 @@
 import React, {PropTypes} from 'react';
 import Clamp from 'react-clamp';
+import {Link} from 'react-router';
 
-const CardComponent = ({className, centerCard, projImgSrc, avatarImgSrc, userName, footer, content, projectTitle, cardId}) => {
+const CardComponent = ({className, centerCard, projImgSrc, avatarImgSrc, userName, footer, content, projectTitle, cardId, link}) => {
   let cardClass = 'card';
-  if(centerCard) {
+  if (centerCard) {
     cardClass = `${cardClass} card-center`;
   }
   return (
     <div className={className}>
       <div className={cardClass}>
-        <div className="card-image">
-          <figure className="image is-4by3">
-            <img src={projImgSrc} alt=""/>
-          </figure>
-        </div>
+        <Link to={link}>
+          <div className="card-image">
+            <figure className="image is-4by3">
+              <img src={projImgSrc} alt=""/>
+            </figure>
+          </div>
+        </Link>
         <div className="card-content">
           <div className="media">
             <div className="media-left">
@@ -49,7 +52,8 @@ CardComponent.propTypes = {
   className: PropTypes.string,
   projImgSrc: PropTypes.string,
   avatarImgSrc: PropTypes.string,
-  centerCard: PropTypes.bool
+  centerCard: PropTypes.bool,
+  link: PropTypes.string
 };
 
 CardComponent.defaultProps = {

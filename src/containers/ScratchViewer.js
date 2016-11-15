@@ -2,7 +2,10 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import projectSelector from '../selectors/projectSelector';
+import ScratchFrame from '../components/ScratchFrame';
+import ContainerComponenet from '../components/Bulma/ContainerComponenet';
 import * as projectActions from '../actions/projectActions';
+import * as pageActions from '../actions/pageActions';
 
 class ScratchViewer extends React.Component {
 
@@ -10,13 +13,16 @@ class ScratchViewer extends React.Component {
     super(props, context);
   }
 
-  componentWillReceiveProps() {
+  componentWillMount() {
+    this.props.actions.setPageTitle('Project Viewer');
     this.props.actions.updateStudentProjects('Falconmick');
   }
 
   render() {
     return (
-      <h1>hello</h1>
+      <ContainerComponenet>
+        <ScratchFrame projectId={this.props.project ? this.props.project.id : 0}/>
+      </ContainerComponenet>
     );
   }
 }
@@ -28,13 +34,13 @@ ScratchViewer.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    project:  projectSelector(state)
+    project: projectSelector(state)
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(projectActions, dispatch)
+    actions: bindActionCreators(Object.assign({}, projectActions, pageActions), dispatch)
   };
 }
 

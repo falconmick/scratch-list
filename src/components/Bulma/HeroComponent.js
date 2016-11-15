@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import { Link } from 'react-router';
 
 const HeroComponent = ({colorModifier, title, subtitle}) => {
     const sectionClass = `hero ${colorModifier || "is-primary"}`;
@@ -8,7 +9,9 @@ const HeroComponent = ({colorModifier, title, subtitle}) => {
         <div className="hero-body">
           <div className="container">
             <h1 className="title">
-              {title}
+              <Link to="/">
+                {title}
+              </Link>
             </h1>
             <h2 className="subtitle">
               {subtitle}

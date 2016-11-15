@@ -8,7 +8,7 @@ import { onProjectEnter } from './routerCallbacks';
 
 export default (
   <Route path="/" component={App}>
-    <IndexRoute component={ScratchList}/>
+    <IndexRoute  component={ScratchList}/>
     <Route path="project/:id" component={ScratchViewer} onEnter={onProjectEnter} />
     { /*<Route path="*" component={NotFoundPage}/>*/}
   </Route>

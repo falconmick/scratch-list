@@ -1,4 +1,5 @@
 export default {
   projects: [],
-  users: []
+  users: [],
+  page: { projectId: -1, pageTitle: '' }
 };
