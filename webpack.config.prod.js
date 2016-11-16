@@ -12,6 +12,8 @@ const GLOBALS = {
   __DEV__: false
 };
 
+import config from './src/constants/config';
+
 export default {
   resolve: {
     extensions: ['', '.js', '.jsx', '.json']
@@ -41,7 +43,7 @@ export default {
 
     // Generate HTML file that contains references to generated bundles. See here for how this works: https://github.com/ampedandwired/html-webpack-plugin#basic-usage
     new HtmlWebpackPlugin({
-      template: 'src/index.ejs',
+      template: 'src/index.prod.ejs',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -57,7 +59,8 @@ export default {
       inject: true,
       // Note that you can add custom options here if you need to handle other custom logic in index.html
       // To track JavaScript errors via TrackJS, sign up for a free trial at TrackJS.com and enter your token below.
-      trackJSToken: ''
+      trackJSToken: '',
+      baseUrl: config.baseUrl
     }),
 
     // Eliminate duplicate packages when generating bundle

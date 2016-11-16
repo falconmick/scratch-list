@@ -2,6 +2,7 @@
 // Allowing console calls below since this is a build file.
 /* eslint-disable no-console */
 import webpack from 'webpack';
+var ncp = require('ncp').ncp;
 import config from '../webpack.config.prod';
 import {chalkError, chalkSuccess, chalkWarning, chalkProcessing} from './chalkConfig';
 
@@ -27,6 +28,20 @@ webpack(config).run((error, stats) => {
   }
 
   console.log(`Webpack stats: ${stats}`);
+
+  ncp('./docs', './tmp', (err) => {
+    if(err) {
+      return console.log(chalkError(err));
+    }
+    console.log(chalkSuccess('dev testing copy to tmp done'));
+    ncp('./tmp', './docs/scratch-list', err => {
+      if(err) {
+        return console.log(chalkError(err));
+      }
+      console.log(chalkSuccess('dev testing copy done'));
+    });
+
+  });
 
   // if we got this far, the build succeeded.
   console.log(chalkSuccess('Your app is compiled in production mode in /docs. It\'s ready to roll!'));

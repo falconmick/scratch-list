@@ -22,6 +22,7 @@ browserSync({
   files: [
     'src/*.html'
   ],
+  startPath: '/scratch-list',
 
   middleware: [historyApiFallback()]
 });
