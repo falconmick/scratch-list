@@ -1,4 +1,4 @@
-//eslint-disable react/self-closing-comp
+/* eslint-disable no-alert react/self-closing-comp */
 import React, {PropTypes} from 'react';
 
 const ScratchFrame = ({projectId}) => {

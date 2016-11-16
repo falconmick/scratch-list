@@ -13,7 +13,6 @@ class ScratchList extends React.Component {
 
   componentDidMount() {
     this.props.actions.setPageTitle('Recent Projects');
-    this.props.actions.updateStudentProjects('Falconmick');
   }
 
   render() {

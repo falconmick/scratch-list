@@ -2,7 +2,7 @@ import {UPDATE_STUDENT_SUCCESS} from '../constants/actionTypes';
 import {beginAjaxCall, endAjaxCall, ajaxCallError} from './ajaxActions';
 import StudentApi from '../api/StudentApi';
 
-function updateStudentSuccess(projects) {
+export function updateStudentSuccess(projects) {
   return {type: UPDATE_STUDENT_SUCCESS, projects};
 }
 

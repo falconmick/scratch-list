@@ -2,7 +2,7 @@
 // Allowing console calls below since this is a build file.
 /* eslint-disable no-console */
 import webpack from 'webpack';
-var ncp = require('ncp').ncp;
+let ncp = require('ncp').ncp;
 import config from '../webpack.config.prod';
 import {chalkError, chalkSuccess, chalkWarning, chalkProcessing} from './chalkConfig';
 

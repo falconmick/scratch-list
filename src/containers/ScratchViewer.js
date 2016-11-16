@@ -15,7 +15,6 @@ class ScratchViewer extends React.Component {
 
   componentWillMount() {
     this.props.actions.setPageTitle('Project Viewer');
-    this.props.actions.updateStudentProjects('Falconmick');
   }
 
   render() {

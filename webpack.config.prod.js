@@ -12,8 +12,6 @@ const GLOBALS = {
   __DEV__: false
 };
 
-import config from './src/constants/config';
-
 export default {
   resolve: {
     extensions: ['', '.js', '.jsx', '.json']
@@ -59,8 +57,7 @@ export default {
       inject: true,
       // Note that you can add custom options here if you need to handle other custom logic in index.html
       // To track JavaScript errors via TrackJS, sign up for a free trial at TrackJS.com and enter your token below.
-      trackJSToken: '',
-      baseUrl: config.baseUrl
+      trackJSToken: ''
     }),
 
     // Eliminate duplicate packages when generating bundle
